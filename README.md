@@ -61,6 +61,7 @@ The MCP server is defined using FastMCP and exposes tools such as:
 - <kbd>get_leave_balance(empId)</kbd>
 - <kbd>apply_leave(empId, start_date, end_date, leave_type, reason)</kbd>
 - <kbd>get_leave_history(empId)</kbd>
+
 Claude AI automatically detects and loads this server once the configuration is correct.
 ### 6. Development Server Setup
 - Run MCP Server locally by running <kbd>uv run mcp install main.py</kbd> command
@@ -70,3 +71,4 @@ Claude AI automatically detects and loads this server once the configuration is 
 - Find MCP server name(\LeaveManager)
 - Tools can be visible there
 - Use them for practical experience
+
