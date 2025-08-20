@@ -12,8 +12,9 @@
 - Run <kbd>pip install --upgrade typer</kbd> to upgrade typer library to its latest version
 - Copy and Paste main.py code in actual main.py which is created on running the command <kbd>uv init my-first-mcp-server</kbd>
 ### 3. Database Integration
+
 ```
-uv pip install mcp pymysql
+- uv pip install mcp pymysql
 
 CREATE DATABASE LMS_DB;
 
@@ -41,4 +42,5 @@ CREATE TABLE IF NOT EXISTS Leaves (
         ON UPDATE CASCADE
 );
 
-INSERT INTO Employees (id, name, annual_leave_balance, sick_leave_balance) VALUES(1, 'Alice Johnson', 20, 10);```
+INSERT INTO Employees (id, name, annual_leave_balance, sick_leave_balance) VALUES(1, 'Alice Johnson', 20, 10);
+
