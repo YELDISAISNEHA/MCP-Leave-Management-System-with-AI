@@ -4,14 +4,13 @@ import pymysql
 from contextlib import contextmanager
 from mcp.server.fastmcp import FastMCP
 
-# Database connection
 @contextmanager
 def db_conn():
     conn = pymysql.connect(
         host="localhost",        
         user="root",             
-        password="RGUKT123",     # change if needed
-        database="LMS_DB"   # make sure this DB exists
+        password="RGUKT123",  
+        database="LMS_DB"  
     )
     try:
         yield conn
@@ -52,7 +51,6 @@ def init_db():
         for stmt in schema:
             cur.execute(stmt)
 
-        # Seed employees if not already present
         cur.execute("SELECT COUNT(1) FROM Employees")
         if cur.fetchone()[0] == 0:
             cur.executemany(
@@ -132,7 +130,6 @@ def apply_leave(empId: int, start_date: str, end_date: str, leave_type: str = "A
     # Normalize leave_type
     leave_type = leave_type.capitalize()
 
-    # Calculate days difference
     start = dt.datetime.strptime(start_date, "%Y-%m-%d").date()
     end = dt.datetime.strptime(end_date, "%Y-%m-%d").date()
     requested_days = (end - start).days + 1
