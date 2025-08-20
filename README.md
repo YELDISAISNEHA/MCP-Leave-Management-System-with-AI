@@ -11,7 +11,7 @@
 - Run <kbd>uv add "mcp[cli]"</kbd> to add mcp cli in your project
 - Run <kbd>pip install --upgrade typer</kbd> to upgrade typer library to its latest version
 - Copy and Paste main.py code in actual main.py which is created on running the command <kbd>uv init my-first-mcp-server</kbd>
-### 3. Database Integration
+### 3. Database Creation
 
 ```
 - uv pip install mcp pymysql
@@ -43,4 +43,30 @@ CREATE TABLE IF NOT EXISTS Leaves (
 );
 
 INSERT INTO Employees (id, name, annual_leave_balance, sick_leave_balance) VALUES(1, 'Alice Johnson', 20, 10);
+```
+### 4. Database Integration with MCP server
 
+```
+- import pymysql
+
+conn = pymysql.connect(
+        host="localhost",        
+        user="root",             
+        password="password",     # change if needed
+        database="LMS_DB"   
+    )
+```
+### 5. App Development
+The MCP server is defined using FastMCP and exposes tools such as:
+- <kbd>get_leave_balance(empId)</kbd>
+- <kbd>apply_leave(empId, start_date, end_date, leave_type, reason)</kbd>
+- <kbd>get_leave_history(empId)</kbd>
+Claude AI automatically detects and loads this server once the configuration is correct.
+### 6. Development Server Setup
+- Run MCP Server locally by running <kbd>uv run mcp install main.py</kbd> command
+### 7. Testing
+- Open Claude Desktop
+- Search for tools
+- Find MCP server name(\LeaveManager)
+- Tools can be visible there
+- Use them for practical experience
